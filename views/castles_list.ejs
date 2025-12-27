@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>日本の名城</title>
+</head>
+<body>
+  <h2>日本の名城一覧</h2>
+  <table border="1">
+    <tr><th>ID</th><th>城名</th><th>所在地</th></tr>
+      <% for( let row of data ) { %>
+        <tr>
+          <td><%= row.id %></td>
+          <td><a href="/castles/<%= row.id %>"><%= row.name %></a></td>
+          <td><%= row.location %></td>
+        </tr>
+      <% } %>
+  </table>
+  <br>
+  <a href="/castles/create">新規登録</a>
+</body>
+</html>

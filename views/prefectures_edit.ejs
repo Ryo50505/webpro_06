@@ -1,0 +1,28 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= data.name %>の編集</title>
+</head>
+<body>
+  <h2><%= data.name %>の編集</h2>
+  <form action="/prefectures/update/<%= data.id %>" method="POST">
+    <table border="1">
+      <tr><th>項目</th><th>データ</th></tr>
+      
+      <tr><td>ID</td><td><%= data.id %></td></tr>
+      <tr><td>県名</td><td><input type="text" name="name" value="<%= data.name %>" required></td></tr>
+      <tr><td>県庁所在地</td><td><input type="text" name="capital" value="<%= data.capital %>" required></td></tr>
+      <tr><td>人口</td><td><input type="number" name="population" value="<%= data.population %>" required></td></tr>
+      <tr><td>名産</td><td><input type="text" name="specialty" value="<%= data.specialty %>"></td></tr>
+      <tr><td>名所</td><td><input type="text" name="spot" value="<%= data.spot %>"></td></tr>
+      <tr><td>面積</td><td><input type="number" name="area" value="<%= data.area %>"></td></tr>
+      <tr><td>画像ファイル名</td><td><input type="text" name="image" value="<%= data.image %>"></td></tr>
+    </table>
+    <br>
+    <input type="submit" value="更新">
+  </form>
+  <br>
+  <a href="/prefectures/<%= data.id %>">詳細に戻る</a>
+</body>
+</html>

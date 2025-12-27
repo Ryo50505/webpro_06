@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= mode === 'create' ? '新規登録' : '編集' %></title>
+</head>
+<body>
+  <h2><%= mode === 'create' ? '世界遺産 新規登録' : data.name + ' の編集' %></h2>
+  
+  <form action="<%= mode === 'create' ? '/heritages' : '/heritages/update/' + data.id %>" method="POST">
+    <table border="1">
+      <tr><th>項目</th><th>データ</th></tr>
+      
+      <% if (mode === 'edit') { %>
+      <tr><td>ID</td><td><%= data.id %></td></tr>
+      <% } %>
+
+      <tr><td>遺産名</td><td><input type="text" name="name" value="<%= data.name %>" required></td></tr>
+      <tr><td>所在地</td><td><input type="text" name="location" value="<%= data.location %>" required></td></tr>
+      <tr><td>登録年</td><td><input type="number" name="year" value="<%= data.year %>" required></td></tr>
+      <tr><td>種別</td><td><input type="text" name="type" value="<%= data.type %>" placeholder="文化遺産 or 自然遺産"></td></tr>
+      <tr><td>画像ファイル名</td><td><input type="text" name="image" value="<%= data.image %>"></td></tr>
+    </table>
+    <br>
+    <input type="submit" value="<%= mode === 'create' ? '登録' : '更新' %>">
+  </form>
+  <br>
+  
+  <% if (mode === 'edit') { %>
+    <a href="/heritages/<%= data.id %>">詳細に戻る</a>
+  <% } else { %>
+    <a href="/heritages">一覧に戻る</a>
+  <% } %>
+</body>
+</html>

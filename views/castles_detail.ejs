@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= data.name %></title>
+</head>
+<body>
+  <h2><%= data.name %>の詳細</h2>
+  <table border="1">
+    <tr><th>項目</th><th>データ</th></tr>
+    
+    <tr><td>ID</td><td><%= data.id %></td></tr>
+    <tr><td>城名</td><td><%= data.name %></td></tr>
+    <tr><td>所在地</td><td><%= data.location %></td></tr>
+    <tr><td>築城年</td><td><%= data.year %> 年</td></tr>
+    <tr><td>主な城主</td><td><%= data.lord %></td></tr>
+    <tr>
+      <td>画像</td>
+      <td>
+        <% if (data.image) { %>
+          <img src="/public/<%= data.image %>" alt="<%= data.name %>" width="200">
+        <% } else { %>
+          画像なし
+        <% } %>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <a href="/castles/edit/<%= data.id %>">編集</a>
+  &nbsp;
+  <a href="/castles/delete/<%= data.id %>" onclick="return confirm('削除しますか？');">削除</a>
+  <br><br>
+  <a href="/castles">一覧に戻る</a>
+</body>
+</html>

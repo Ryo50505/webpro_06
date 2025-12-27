@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>日本の世界遺産</title>
+</head>
+<body>
+  <h2>日本の世界遺産一覧</h2>
+  <table border="1">
+    <tr><th>ID</th><th>遺産名</th><th>種別</th><th>所在地</th></tr>
+      <% for( let row of data ) { %>
+        <tr>
+          <td><%= row.id %></td>
+          <td><a href="/heritages/<%= row.id %>"><%= row.name %></a></td>
+          <td><%= row.type %></td>
+          <td><%= row.location %></td>
+        </tr>
+      <% } %>
+  </table>
+  <br>
+  <a href="/heritages/create">新規登録</a>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>関東の都道府県</title>
+</head>
+<body>
+  <h2>関東の都道府県一覧</h2>
+  <table border="1">
+    <tr><th>ID</th><th>県名</th><th>県庁所在地</th></tr>
+      <% for( let row of data ) { %>
+        <tr>
+          <td><%= row.id %></td>
+          <td><a href="/prefectures/<%= row.id %>"><%= row.name %></a></td>
+          <td><%= row.capital %></td>
+        </tr>
+      <% } %>
+  </table>
+  <br>
+  <a href="/prefectures/create">追加</a>
+</body>
+</html>
